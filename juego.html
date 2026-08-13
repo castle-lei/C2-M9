@@ -183,6 +183,8 @@
         .tipo-veneno{ background:#a040a0; }
         .tipo-fuego{ background:#f08030; }
         .tipo-agua{ background:#6890f0; }
+        .tipo-normal{ background:#a8a878; }
+        .tipo-hielo{ background:#98d8d8; }
 
         .stat-row{
             display:flex;
@@ -658,13 +660,17 @@
         .b-sprite .pkm-frame{
             width:110px;
             height:100px;
-            background-image:url('charmander-walk.png');
             background-repeat:no-repeat;
             background-size:440px 100px;
             background-position:0 0;
             image-rendering:pixelated;
             filter:drop-shadow(0 10px 14px rgba(0,0,0,.3));
         }
+
+        .pkm-frame.frente{ background-image:url('charmander-frente.png'); }
+        .pkm-frame.espalda{ background-image:url('charmander-espalda.png'); }
+        .pkm-frame.izquierda{ background-image:url('charmander-izquierda.png'); }
+        .pkm-frame.derecha{ background-image:url('charmander-derecha.png'); }
 
         .b-sprite .pkm-frame.moviendo{
             animation:caminar-pkm .5s steps(3) infinite;
@@ -673,6 +679,59 @@
         @keyframes caminar-pkm{
             from{ background-position:0 0; }
             to{ background-position:-330px 0; }
+        }
+
+        .b-sprite .pkm-frame.rival{
+            animation:caminar-rival .6s steps(4) infinite;
+        }
+
+        @keyframes caminar-rival{
+            from{ background-position:0 0; }
+            to{ background-position:-400px 0; }
+        }
+
+        #bEnemigo.enemigo-rattata .pkm-frame{
+            width:100px;
+            height:110px;
+            background-image:url('rattata-frente.png');
+            background-size:500px 110px;
+        }
+
+        #bEnemigo.enemigo-rattata .pkm-frame.espalda{
+            background-image:url('rattata-espalda.png');
+        }
+
+        #bEnemigo.enemigo-rattata .pkm-frame.izquierda,
+        #bEnemigo.enemigo-rattata .pkm-frame.derecha{
+            background-image:url('rattata-lado.png');
+        }
+
+        #bEnemigo.enemigo-rattata .pkm-frame.derecha{
+            transform:scaleX(-1);
+        }
+
+        #bEnemigo.enemigo-glaceon .pkm-frame{
+            width:100px;
+            height:97px;
+            background-image:url('glaceon-frente.png');
+            background-size:500px 97px;
+        }
+
+        #bEnemigo.enemigo-glaceon .pkm-frame.espalda{
+            background-image:url('glaceon-espalda.png');
+        }
+
+        #bEnemigo.enemigo-glaceon .pkm-frame.izquierda,
+        #bEnemigo.enemigo-glaceon .pkm-frame.derecha{
+            background-image:url('glaceon-lado.png');
+        }
+
+        #bEnemigo.enemigo-glaceon .pkm-frame.derecha{
+            transform:scaleX(-1);
+        }
+
+        .b-sprite img.mirror{
+            scale:-1 1;
         }
 
         .b-sprite.golpe img,
@@ -1025,7 +1084,7 @@
 
                     </div>
 
-                    <p class="b-controles">Mueve tu Pokémon con Flechas/WASD · Dispara con Espacio · Golpe cuerpo a cuerpo con E</p>
+                    <p class="b-controles">Mueve tu Pokémon con Flechas/WASD · Dispara hacia donde miras con Z · Golpe cuerpo a cuerpo con X</p>
 
                     <div class="b-huds">
 
@@ -1087,16 +1146,16 @@
 
     const STARTERS = [
         {
-            id: 'bulbasaur',
-            nombre: 'Bulbasaur',
-            numero: '001',
-            sprite: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png',
-            fallback: '🌱',
-            tipos: ['Planta', 'Veneno'],
-            altura: '0,7 m',
-            peso: '6,9 kg',
-            descripcion: 'Una semilla plantada en su espalda desde el día que nace. La semilla crece lentamente y absorbe la luz del sol para darle energía.',
-            stats: { 'PS': 45, 'Ataque': 49, 'Defensa': 49, 'Velocidad': 45 }
+            id: 'rattata',
+            nombre: 'Rattata',
+            numero: '019',
+            sprite: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/19.png',
+            fallback: '🐭',
+            tipos: ['Normal'],
+            altura: '0,3 m',
+            peso: '3,5 kg',
+            descripcion: 'Muerde cualquier cosa con sus incisivos. Es muy veloz y se esconde entre la hierba para atacar cuando menos te lo esperas.',
+            stats: { 'PS': 30, 'Ataque': 56, 'Defensa': 35, 'Velocidad': 72 }
         },
         {
             id: 'charmander',
@@ -1112,16 +1171,16 @@
             stats: { 'PS': 39, 'Ataque': 52, 'Defensa': 43, 'Velocidad': 65 }
         },
         {
-            id: 'squirtle',
-            nombre: 'Squirtle',
-            numero: '007',
-            sprite: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/7.png',
-            fallback: '💧',
-            tipos: ['Agua'],
-            altura: '0,5 m',
-            peso: '9,0 kg',
-            descripcion: 'Tras nacer, se le endurece la espalda y su caparazón se vuelve resistente. Cuando siente peligro, esconde la cabeza y dispara una potente espuma por la boca.',
-            stats: { 'PS': 44, 'Ataque': 48, 'Defensa': 65, 'Velocidad': 43 }
+            id: 'glaceon',
+            nombre: 'Glaceon',
+            numero: '471',
+            sprite: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/471.png',
+            fallback: '❄️',
+            tipos: ['Hielo'],
+            altura: '0,8 m',
+            peso: '25,9 kg',
+            descripcion: 'Su pelaje se cubre de pequeños cristales de hielo. Cuando se concentra, congela el aire a su alrededor y dispara ráfagas glaciales.',
+            stats: { 'PS': 65, 'Ataque': 60, 'Defensa': 110, 'Velocidad': 65 }
         }
     ];
 
@@ -1129,7 +1188,9 @@
         'Planta': 'tipo-planta',
         'Veneno': 'tipo-veneno',
         'Fuego': 'tipo-fuego',
-        'Agua': 'tipo-agua'
+        'Agua': 'tipo-agua',
+        'Normal': 'tipo-normal',
+        'Hielo': 'tipo-hielo'
     };
 
     function spriteDe(p) {
@@ -1424,15 +1485,11 @@
     /*=============== BATALLA ===============*/
 
     const ENEMIGOS = [
-        { nombre: 'Pidgey', numero: '016', hp: 40, atk: 35, def: 30, sprite: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/16.png', fallback: '🐦' },
-        { nombre: 'Rattata', numero: '019', hp: 30, atk: 41, def: 35, sprite: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/19.png', fallback: '🐭' },
-        { nombre: 'Caterpie', numero: '010', hp: 45, atk: 24, def: 30, sprite: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10.png', fallback: '🐛' },
-        { nombre: 'Pikachu', numero: '025', hp: 35, atk: 50, def: 35, sprite: 'pikachu.png', fallback: '⚡' },
-        { nombre: 'Geodude', numero: '074', hp: 40, atk: 60, def: 70, sprite: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/74.png', fallback: '🪨' },
-        { nombre: 'Zubat', numero: '041', hp: 40, atk: 40, def: 30, sprite: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/41.png', fallback: '🦇' }
+        { nombre: 'Rattata', numero: '019', hp: 30, atk: 41, def: 35, sprite: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/19.png', fallback: '🐭', sheetClass: 'enemigo-rattata' },
+        { nombre: 'Glaceon', numero: '471', hp: 65, atk: 60, def: 110, sprite: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/471.png', fallback: '❄️', sheetClass: 'enemigo-glaceon' }
     ];
 
-    const rivales = [...ENEMIGOS].sort(() => Math.random() - 0.5).slice(0, 2);
+    const rivales = [...ENEMIGOS];
 
     let enBatalla = false;
     let indiceRival = 0;
@@ -1443,9 +1500,15 @@
     let bucleBatallaId = null;
     let bJugadorX = 0, bJugadorY = 0;
     let bEnemigoX = 0;
+    let bEnemigoY = 14;
     let ultimoTiroEnemigo = 0;
     let ultimoTiroJugador = 0;
     let ultimoMelee = 0;
+    let direccionBatalla = 'frente';
+    let direccionEnemigo = 'frente';
+    let ultimoCambioDir = 0;
+    let ataqueMeleeActivo = false;
+    let ataqueMeleeT = null;
     let proyectiles = [];
 
     const overlay = document.getElementById('batallaOverlay');
@@ -1470,9 +1533,16 @@
 
         contenedor.innerHTML = '';
 
+        if (p.sheetClass) {
+            const frame = document.createElement('div');
+            frame.className = 'pkm-frame rival';
+            contenedor.appendChild(frame);
+            return;
+        }
+
         if (p.id === 'charmander') {
             const frame = document.createElement('div');
-            frame.className = 'pkm-frame';
+            frame.className = 'pkm-frame frente';
             contenedor.appendChild(frame);
             return;
         }
@@ -1516,10 +1586,15 @@
         bVidaRival.style.width = '100%';
         bHpRival.textContent = r.hp + '/' + r.maxHp;
 
+        bSpriteEnemigo.className = 'b-sprite ' + (r.sheetClass || '');
         pintarSprite(bSpriteEnemigo, rivalBatalla);
 
         bEnemigoX = (arena.clientWidth - 110) / 2;
+        bEnemigoY = Math.round(arena.clientHeight / 2);
+        direccionEnemigo = 'frente';
+        ultimoCambioDir = 0;
         bSpriteEnemigo.style.left = bEnemigoX + 'px';
+        bSpriteEnemigo.style.top = bEnemigoY + 'px';
 
         mostrarMensaje('¡Aparece ' + r.nombre + '!');
 
@@ -1571,7 +1646,7 @@
         arena.appendChild(p);
 
         const x = bEnemigoX + 47;
-        const y = 124;
+        const y = bEnemigoY + 110;
 
         proyectiles.push({ el: p, x: x, y: y, dx: 0, dy: 4.2, owner: 'enemigo' });
 
@@ -1586,10 +1661,18 @@
         p.className = 'proyectil proyectil-jugador';
         arena.appendChild(p);
 
-        const x = bJugadorX + 47;
-        const y = bJugadorY - 12;
+        let dx = 0;
+        let dy = -7;
 
-        proyectiles.push({ el: p, x: x, y: y, dx: 0, dy: -7, owner: 'jugador' });
+        if (direccionBatalla === 'frente') { dx = 0; dy = 7; }
+        else if (direccionBatalla === 'espalda') { dx = 0; dy = -7; }
+        else if (direccionBatalla === 'izquierda') { dx = -7; dy = 0; }
+        else if (direccionBatalla === 'derecha') { dx = 7; dy = 0; }
+
+        const x = bJugadorX + 55 + dx * 3;
+        const y = bJugadorY + 55 + dy * 3;
+
+        proyectiles.push({ el: p, x: x, y: y, dx: dx, dy: dy, owner: 'jugador' });
 
         p.style.left = x + 'px';
         p.style.top = y + 'px';
@@ -1600,13 +1683,16 @@
 
         const framePkm = bSpriteJugador.querySelector('.pkm-frame');
         if (framePkm) {
-            framePkm.classList.add('atacando');
-            setTimeout(() => framePkm.classList.remove('atacando'), 380);
+            ataqueMeleeActivo = true;
+            clearTimeout(ataqueMeleeT);
+            ataqueMeleeT = setTimeout(() => {
+                ataqueMeleeActivo = false;
+            }, 380);
         }
 
         const d = Math.hypot(
             (bJugadorX + 55) - (bEnemigoX + 55),
-            (bJugadorY + 55) - 69
+            (bJugadorY + 55) - (bEnemigoY + 55)
         );
 
         if (d > ALCANCE_MELEE) return false;
@@ -1618,7 +1704,7 @@
         const s = document.createElement('div');
         s.className = 'golpe-melee';
         s.style.left = (bEnemigoX + 55) + 'px';
-        s.style.top = '69px';
+        s.style.top = (bEnemigoY + 55) + 'px';
         arena.appendChild(s);
         setTimeout(() => s.remove(), 380);
 
@@ -1691,10 +1777,10 @@
         const arr = teclas.has('arrowup') || teclas.has('w');
         const aba = teclas.has('arrowdown') || teclas.has('s');
 
-        if (izq) bJugadorX -= 6;
-        if (der) bJugadorX += 6;
-        if (arr) bJugadorY -= 6;
-        if (aba) bJugadorY += 6;
+        if (izq) { bJugadorX -= 6; direccionBatalla = 'izquierda'; }
+        if (der) { bJugadorX += 6; direccionBatalla = 'derecha'; }
+        if (arr) { bJugadorY -= 6; direccionBatalla = 'espalda'; }
+        if (aba) { bJugadorY += 6; direccionBatalla = 'frente'; }
 
         bJugadorX = Math.max(0, Math.min(arena.clientWidth - 110, bJugadorX));
         bJugadorY = Math.max(0, Math.min(arena.clientHeight - 120, bJugadorY));
@@ -1704,23 +1790,49 @@
         bSombraJugador.style.left = (bJugadorX + 20) + 'px';
         bSombraJugador.style.top = (arena.clientHeight - 30) + 'px';
 
+        const mov = izq || der || arr || aba;
         const framePkm = bSpriteJugador.querySelector('.pkm-frame');
-        if (framePkm) framePkm.classList.toggle('moviendo', izq || der || arr || aba);
+        if (framePkm) {
+            framePkm.className = 'pkm-frame ' + direccionBatalla + (mov ? ' moviendo' : '') + (ataqueMeleeActivo ? ' atacando' : '');
+        }
 
-        bEnemigoX = (arena.clientWidth - 110) / 2 + Math.sin(ts / 450) * 70;
+        const imgJugador = bSpriteJugador.querySelector('img');
+        if (imgJugador) imgJugador.classList.toggle('mirror', direccionBatalla === 'izquierda');
+
+        if (ts - ultimoCambioDir > 1600) {
+            ultimoCambioDir = ts;
+            const dirs = ['frente', 'espalda', 'izquierda', 'derecha'];
+            direccionEnemigo = dirs[Math.floor(Math.random() * dirs.length)];
+        }
+
+        const velEnemigo = 1.7;
+        if (direccionEnemigo === 'frente') bEnemigoY += velEnemigo;
+        else if (direccionEnemigo === 'espalda') bEnemigoY -= velEnemigo;
+        else if (direccionEnemigo === 'izquierda') bEnemigoX -= velEnemigo;
+        else if (direccionEnemigo === 'derecha') bEnemigoX += velEnemigo;
+
+        if (bEnemigoX < 10) { bEnemigoX = 10; direccionEnemigo = 'derecha'; }
+        if (bEnemigoX > arena.clientWidth - 120) { bEnemigoX = arena.clientWidth - 120; direccionEnemigo = 'izquierda'; }
+        if (bEnemigoY < 10) { bEnemigoY = 10; direccionEnemigo = 'frente'; }
+        if (bEnemigoY > arena.clientHeight - 130) { bEnemigoY = arena.clientHeight - 130; direccionEnemigo = 'espalda'; }
+
         bSpriteEnemigo.style.left = bEnemigoX + 'px';
+        bSpriteEnemigo.style.top = bEnemigoY + 'px';
+
+        const frameEnemigo = bSpriteEnemigo.querySelector('.pkm-frame');
+        if (frameEnemigo) frameEnemigo.className = 'pkm-frame rival ' + direccionEnemigo;
 
         if (ts - ultimoTiroEnemigo > 1100) {
             disparoEnemigo();
             ultimoTiroEnemigo = ts;
         }
 
-        if ((teclas.has(' ') || teclas.has('c')) && ts - ultimoTiroJugador > 300) {
+        if (teclas.has('z') && ts - ultimoTiroJugador > 300) {
             disparoJugador();
             ultimoTiroJugador = ts;
         }
 
-        if ((teclas.has('e') || teclas.has('shift')) && ts - ultimoMelee > 400) {
+        if (teclas.has('x') && ts - ultimoMelee > 400) {
             ultimoMelee = ts;
             if (ataqueMelee()) return;
         }
@@ -1758,7 +1870,7 @@
 
             }
 
-            if (p.owner === 'jugador' && chocan(p.x, p.y, 16, 16, bEnemigoX, 14, 110, 110)) {
+            if (p.owner === 'jugador' && chocan(p.x, p.y, 16, 16, bEnemigoX, bEnemigoY, 110, 110)) {
 
                 rivalBatalla.hp = Math.max(0, rivalBatalla.hp - DAÑO_DISPARO);
                 actualizarVida();
@@ -1816,7 +1928,7 @@
         npc.classList.add('desactivado');
         npcBurbuja.textContent = '¡Tú y yo!';
 
-        mostrarMensaje('¡Esquiva y ataca! Espacio dispara · E golpea de cerca');
+        mostrarMensaje('¡Esquiva y ataca! Z dispara hacia donde miras · X golpea de cerca');
 
         ultimoTiroEnemigo = performance.now() + 1200;
         ultimoTiroJugador = 0;
