@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PokeWeb</title>
+
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<!--================== NAVBAR ==================-->
+
+<nav class="navbar navbar-expand-lg navbar-dark poke-navbar sticky-top">
+
+    <div class="container">
+
+        <a class="navbar-brand d-flex align-items-center" href="#">
+
+            <img src="favicon.png"
+                 alt="Logo"
+                 width="55"
+                 class="me-2">
+
+            <strong>PokeWeb</strong>
+
+        </a>
+
+        <button class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#menu">
+
+            <span class="navbar-toggler-icon"></span>
+
+        </button>
+
+        <div class="collapse navbar-collapse d-flex w-100" id="menu">
+
+            <ul class="navbar-nav me-auto">
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Inicio</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#ques">¿Qué es un Pokémon?</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#juegos">Juegos Pokémon</a>
+                </li>
+
+
+            </ul>
+
+            <div class="d-flex justify-content-end align-items-center">
+                <button class="btn btn-warning ms-lg-3" id="loginBtn">Iniciar Sesión</button>
+            </div>
+
+        </div>
+
+    </div>
+
+</nav>
+
+<!--================== HERO ==================-->
+
+<header class="hero">
+
+    <div class="container">
+
+        <div class="row align-items-center">
+
+            <div class="col-lg-6">
+
+                <h1>
+
+                    Bienvenido a <span>PokeWeb</span>
+
+                </h1>
+
+                <p>
+
+                    Descubre el increíble mundo Pokémon,
+                    conoce cómo comenzó la franquicia y
+                    revive los primeros videojuegos de la saga.
+
+                </p>
+
+                <a href="juego.html" class="btn-play">
+
+                    <span class="play-icon">&#9658;</span>
+                    Jugar
+
+                </a>
+
+            </div>
+
+            <div class="col-lg-6 text-center">
+
+                <img src="pikachu.png"
+                     class="hero-img"
+                     alt="Pikachu">
+
+            </div>
+
+        </div>
+
+    </div>
+
+</header>
+
+<!--================== ¿QUÉ ES UN POKÉMON? ==================-->
+
+<section id="ques">
+
+<div class="container">
+
+<div class="card">
+
+<div class="card-body">
+
+<h2>¿Qué es un Pokémon?</h2>
+
+<p>
+
+Los Pokémon son criaturas de diferentes formas y tamaños que viven tanto
+en estado salvaje como junto a los seres humanos.
+La mayoría solo pueden pronunciar el sonido de su propio nombre.
+
+</p>
+
+<p>
+
+En la actualidad existen más de mil especies diferentes,
+cada una con habilidades, tipos y evoluciones propias.
+
+</p>
+
+<hr>
+
+<h3>
+
+¿Qué tipo de criaturas son los Pokémon?
+
+</h3>
+
+<p>
+
+Creados por Satoshi Tajiri a finales de los años 80,
+los Pokémon (Monstruos de Bolsillo)
+son criaturas ficticias inspiradas en animales,
+plantas, objetos y seres legendarios.
+
+</p>
+
+<div class="row mt-5">
+
+<div class="col-md-4">
+
+<div class="info-box">
+
+<h4>Más de 1000 Pokémon</h4>
+
+<p>
+
+Cada generación incorpora nuevas especies
+y nuevas evoluciones.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="col-md-4">
+
+<div class="info-box">
+
+<h4>18 Tipos</h4>
+
+<p>
+
+Fuego, Agua, Planta,
+Eléctrico, Dragón,
+Fantasma y muchos más.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="col-md-4">
+
+<div class="info-box">
+
+<h4>Desde 1996</h4>
+
+<p>
+
+Una de las franquicias
+más exitosas de la historia.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!--================== JUEGOS ==================-->
+
+<section id="juegos">
+
+<div class="container">
+
+<h2 class="mb-5">
+
+Los primeros videojuegos Pokémon
+
+</h2>
+<!--================ PRIMERA GENERACIÓN =================-->
+
+<div class="card shadow-lg mb-5">
+
+    <div class="card-body">
+
+        <h3 class="text-center mb-4">
+            Primera Generación (Kanto)
+        </h3>
+
+        <div id="carouselKanto" class="carousel slide" data-bs-ride="carousel">
+
+            <div class="carousel-indicators">
+
+                <button type="button" data-bs-target="#carouselKanto" data-bs-slide-to="0" class="active"></button>
+                <button type="button" data-bs-target="#carouselKanto" data-bs-slide-to="1"></button>
+                <button type="button" data-bs-target="#carouselKanto" data-bs-slide-to="2"></button>
+
+            </div>
+
+            <div class="carousel-inner">
+
+                <!-- Rojo -->
+
+                <div class="carousel-item active">
+
+                    <img src="pokemon-rojo.png" class="d-block w-100" alt="Pokémon Rojo">
+
+                    <div class="text-center p-4">
+
+                        <h4>Pokémon Rojo</h4>
+
+                        <p>
+
+                            Lanzado para Game Boy en 1996.
+                            Explora la región de Kanto,
+                            captura Pokémon y derrota a los líderes de gimnasio
+                            para convertirte en el Campeón.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <!-- Verde -->
+
+                <div class="carousel-item">
+
+                    <img src="pokemon-verde.png" class="d-block w-100" alt="Pokémon Verde">
+
+                    <div class="text-center p-4">
+
+                        <h4>Pokémon Verde</h4>
+
+                        <p>
+
+                            Publicado únicamente en Japón.
+                            Fue una de las primeras versiones
+                            que dio origen a toda la franquicia Pokémon.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <!-- Azul -->
+
+                <div class="carousel-item">
+
+                    <img src="pokemon-azul.png" class="d-block w-100" alt="Pokémon Azul">
+
+                    <div class="text-center p-4">
+
+                        <h4>Pokémon Azul</h4>
+
+                        <p>
+
+                            Incluyó mejoras gráficas y cambios
+                            en la distribución de algunos Pokémon,
+                            convirtiéndose en una versión muy popular.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselKanto" data-bs-slide="prev">
+
+                <span class="carousel-control-prev-icon"></span>
+
+            </button>
+
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselKanto" data-bs-slide="next">
+
+                <span class="carousel-control-next-icon"></span>
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!--================ SEGUNDA GENERACIÓN =================-->
+
+<div class="card shadow-lg">
+
+    <div class="card-body">
+
+        <h3 class="text-center mb-4">
+            Segunda Generación (Johto)
+        </h3>
+
+        <div id="carouselJohto" class="carousel slide" data-bs-ride="carousel">
+
+            <div class="carousel-indicators">
+
+                <button type="button" data-bs-target="#carouselJohto" data-bs-slide-to="0" class="active"></button>
+                <button type="button" data-bs-target="#carouselJohto" data-bs-slide-to="1"></button>
+                <button type="button" data-bs-target="#carouselJohto" data-bs-slide-to="2"></button>
+
+            </div>
+
+            <div class="carousel-inner">
+
+                <div class="carousel-item active">
+
+                    <img src="pokemon-oro.png" class="d-block w-100" alt="Pokémon Oro">
+
+                    <div class="text-center p-4">
+
+                        <h4>Pokémon Oro</h4>
+
+                        <p>
+
+                            Introdujo la región Johto,
+                            el reloj interno,
+                            el ciclo día y noche
+                            y más de cien nuevos Pokémon.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="carousel-item">
+
+                    <img src="pokemon-plata.png" class="d-block w-100" alt="Pokémon Plata">
+
+                    <div class="text-center p-4">
+
+                        <h4>Pokémon Plata</h4>
+
+                        <p>
+
+                            Comparte la aventura de Johto
+                            con Pokémon exclusivos para completar
+                            la Pokédex mediante intercambios.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="carousel-item">
+
+                    <img src="pokemon-cristal.png" class="d-block w-100" alt="Pokémon Cristal">
+
+                    <div class="text-center p-4">
+
+                        <h4>Pokémon Cristal</h4>
+
+                        <p>
+
+                            Fue la versión definitiva de la segunda generación.
+                            Incluyó sprites animados
+                            y la posibilidad de jugar como una entrenadora.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselJohto" data-bs-slide="prev">
+
+                <span class="carousel-control-prev-icon"></span>
+
+            </button>
+
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselJohto" data-bs-slide="next">
+
+                <span class="carousel-control-next-icon"></span>
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+<script src="auth.js"></script>
+</section>
+</body>
+</html>
+j 
+<!-- Footer -->
+<footer class="site-footer">
+    <div class="container">
+        <div class="row align-items-start">
+            <div class="col-md-4 mb-3">
+                <a class="footer-brand d-flex align-items-center" href="#">
+                    <img src="favicon.png" alt="PokeWeb" width="48" class="me-2">
+                    <div>
+                        <strong>PokeWeb</strong>
+                        <div class="small">Explora el mundo Pokémon</div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <h5>Enlaces</h5>
+                <ul class="list-unstyled footer-links">
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="#ques">¿Qué es un Pokémon?</a></li>
+                    <li><a href="#juegos">Juegos Pokémon</a></li>
+                </ul>
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <h5>Contacto</h5>
+                <p class="mb-1">pokedemo@example.com</p>
+                <p class="mb-0">Síguenos</p>
+                <div class="social-icons mt-2">
+                    <a href="#" aria-label="Twitter" class="me-2">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 5.92c-.64.28-1.32.47-2.04.55.73-.44 1.28-1.14 1.54-1.98-.68.4-1.44.69-2.25.85C18.9 4.54 17.84 4 16.66 4c-1.7 0-3.08 1.38-3.08 3.08 0 .24.03.47.08.69C10.03 7.7 7.06 6.1 5.14 3.59c-.26.45-.41.97-.41 1.52 0 1.05.53 1.98 1.34 2.52-.5-.02-.98-.15-1.39-.38v.04c0 1.48 1.05 2.71 2.45 2.99-.26.07-.53.11-.81.11-.2 0-.4-.02-.59-.06.4 1.24 1.56 2.14 2.93 2.16C6.2 17.3 4.3 18 2.18 18c-.14 0-.28 0-.41-.01C1.79 19.31 3.06 20.4 4.57 20.61c-1.02.8-2.3 1.28-3.69 1.28-.24 0-.48-.01-.71-.04 1.31.84 2.86 1.33 4.53 1.33 5.44 0 8.42-4.51 8.42-8.42v-.38c.58-.41 1.08-.92 1.48-1.51-.54.24-1.12.41-1.73.48.63-.38 1.12-.98 1.36-1.7z"></path></svg>
+                    </a>
+                    <a href="#" aria-label="Instagram" class="me-2">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm10 2c1.66 0 3 1.34 3 3v10c0 1.66-1.34 3-3 3H7c-1.66 0-3-1.34-3-3V7c0-1.66 1.34-3 3-3h10zM12 7a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6zm4.8-3.2a1.2 1.2 0 11-2.4 0 1.2 1.2 0 012.4 0z"></path></svg>
+                    </a>
+                    <a href="#" aria-label="GitHub">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.73.5.88 5.35.88 11.62c0 4.79 3.1 8.85 7.39 10.29.54.1.74-.24.74-.53 0-.26-.01-.95-.01-1.87-3.01.65-3.64-1.45-3.64-1.45-.49-1.25-1.2-1.58-1.2-1.58-.98-.67.07-.65.07-.65 1.08.08 1.65 1.11 1.65 1.11.96 1.65 2.52 1.17 3.14.9.1-.7.37-1.17.67-1.44-2.4-.27-4.93-1.2-4.93-5.34 0-1.18.42-2.15 1.11-2.91-.11-.28-.48-1.42.11-2.96 0 0 .9-.29 2.95 1.11a10.27 10.27 0 012.69-.36c.91.01 1.83.12 2.69.36 2.05-1.4 2.95-1.11 2.95-1.11.59 1.54.22 2.68.11 2.96.69.76 1.11 1.73 1.11 2.91 0 4.15-2.54 5.07-4.96 5.33.38.33.72.98.72 1.98 0 1.43-.01 2.58-.01 2.93 0 .29.2.64.75.53 4.29-1.44 7.39-5.5 7.39-10.29C23.12 5.35 18.27.5 12 .5z"></path></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <hr class="mt-4" />
+
+        <div class="d-flex justify-content-between align-items-center pt-3 footer-bottom">
+            <small>&copy; 2026 PokeWeb. Todos los derechos reservados.</small>
+            <small>Hecho con ❤️ por la comunidad</small>
+        </div>
+    </div>
+</footer>

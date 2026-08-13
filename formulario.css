@@ -1,0 +1,30 @@
+/* Estilos para centrar el formulario */
+html{
+	height: 100%;
+}
+
+body {
+	min-height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 24px;
+	background: linear-gradient(180deg,#fff,#fff8f8); /* sutil fondo */
+}
+
+.card {
+	margin: 0 auto;
+	width: 100%;
+	max-width: 420px;
+}
+
+.card-img-top{
+	width:100%;
+	height:120px;
+	object-fit:cover;
+}
+
+@media (max-width: 420px){
+	body{padding:12px}
+}
+
